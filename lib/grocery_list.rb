@@ -4,7 +4,7 @@ class GroceryList
 
   def initialize(file_name, user)
     @grocery_list = import_list(file_name)
-    @user        = user    
+    @user         = user    
   end
 
   def list_with_index
@@ -22,4 +22,8 @@ class GroceryList
   def import_list(file_name)
     IO.read(file_name).split("\n")
   end
+
+  def random_item
+    @random
+
 end

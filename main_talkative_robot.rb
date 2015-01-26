@@ -98,8 +98,8 @@ class GroceryList
   end  
 
   def to_s
-        grocery_list.map.with_index do |item, index|
-      "#{index + 1} -- #{item}"
+        grocery_list.each do |item|
+      puts "#{item + 1} -- #{item}"
     end.join("\n")
   end
 
@@ -113,7 +113,7 @@ end
 class Author < Person
   def initialize(args)
     super(args)
-    @name   = "OG"
+    @name   = "OG "
     @age    = 28
     @gender = "M"
   end
