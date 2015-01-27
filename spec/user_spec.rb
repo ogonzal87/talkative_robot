@@ -9,7 +9,7 @@ describe User do
       let(:person) { User.new(age: age) }
       
       it "it evaluates the age correctly" do 
-        expect( person.entrance_message(age) ).to eq("Please, come in!")
+        expect( person.entrance_message ).to eq("Please, come in!")
       end
     end
   end
@@ -20,15 +20,15 @@ describe User do
       let(:person) { User.new(age: age) } 
       
       it "an aurgument is evaluated" do
-        expect( person.age_based_message(age) ).to be_truthy
+        expect( person.age_based_message ).to be_truthy
       end 
 
       it "tells you when you will turn 75" do
-        expect( person.age_based_message(age) ).to eq("you'll be 75 in #{75 - person.age} years")
+        expect( person.age_based_message ).to eq("you'll be 75 in #{75 - person.age} years")
       end
 
       it "tells you when you will turn 75" do
-        expect( person.age_based_message(age) ).to eq("you'll be 75 in #{75 - person.age} years")
+        expect( person.age_based_message ).to eq("you'll be 75 in #{75 - person.age} years")
       end
 
       it "Makes sure the number 75 is included in the string" do  
@@ -44,11 +44,11 @@ describe User do
       let(:person) { User.new(age: age, gender: gender) }
 
       it "says you are young boy?" do
-        expect( person.young_vs_old(age) ).to eq("you're a young boy")
+        expect( person.young_vs_old ).to eq("you're a young boy")
       end
 
       it "returns true if 'M' is passed" do
-        expect( person.young_vs_old(age) ).to be_truthy
+        expect( person.young_vs_old ).to be_truthy
       end
 
       it "age is a required data" do
