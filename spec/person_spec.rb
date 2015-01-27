@@ -32,6 +32,10 @@ attr_accessor :name, :gender, :age
       it "should not contain 'M'" do
         expect( person_female.male? ).not_to eq("M")
       end
+
+      it "not return 'nil'" do
+        expect( person_female.male? ).not_to eq("nil")
+      end
     end
   end
 

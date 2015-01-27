@@ -6,7 +6,7 @@ class Person
     @name   = args[:name]
     @gender = args[:gender]
     @age    = args[:age]
-  end
+  end 
 
   def get_name
     print "What is your name?: "
@@ -28,6 +28,11 @@ class Person
     gets.chomp.to_i
   end
 
+  def entrance_message_to_friend
+    puts "I see you brought a friend! How old is your friend?"
+    friend_age = gets.chomp.to_i
+    friend_age < 21 ? "Unfortunately, we don't let people in who are younger than 21." : "Welcome to you and yours friend!!"  
+  end
 
   def male?
     gender == "M"
