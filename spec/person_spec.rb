@@ -1,8 +1,9 @@
 require 'spec_helper'
 require_relative '../lib/person'
-
-
+ 
 describe Person do
+
+attr_accessor :name, :gender, :age
 
   describe "male?" do
     context "is a guy" do
@@ -11,11 +12,14 @@ describe Person do
       it "is true" do
         expect( person_m.male? ).to be_truthy
       end
+    end
 
-      it "should not contain 'F'" do
-        expect( person_m.male? ).not_to eq("F")
+    context "input has more than one character" do
+      let(:person_m) { Person.new(gender: "MM") }
+
+      it "input does not contain more than one character" do
+        expect( person_m.male? ).to be_falsey
       end
-
     end
 
     context "is a girl" do
@@ -27,6 +31,10 @@ describe Person do
       
       it "should not contain 'M'" do
         expect( person_female.male? ).not_to eq("M")
+      end
+
+      it "not return 'nil'" do
+        expect( person_female.male? ).not_to eq("nil")
       end
     end
   end

@@ -1,22 +1,22 @@
 class User < Person
 
-attr_accessor :name, :gender, :age
+ attr_accessor :name, :gender, :age
 
   def initialize(args)
     super(args)
   end
 
-  def entrance_message(user)
-    age < 21 ? "Unfortunately, we don't let people in who are younger than 21" : "Please, come in!"
-  end
+  def entrance_message
+    age < 21 ? "Unfortunately, we don't let people in who are younger than 21." : "Please, come in!"
+  end 
 
-  def entrance_message_to_friend(user)
+  def entrance_message_to_friend
     puts "I see you brought a friend! How old is your friend?"
     friend_age = gets.chomp.to_i
     friend_age < 21 ? "Unfortunately, we don't let people in who are younger than 21." : "Welcome to you and yours friend!!"  
   end
 
-  def age_based_message(user)  
+  def age_based_message
     case age
     when age == 75
       "you're 75!"
@@ -27,11 +27,11 @@ attr_accessor :name, :gender, :age
     end
   end
 
-  def young_vs_old(user)
-    return "you're a young boy"  if young? && gender == "M" 
-    return "you're a young girl" if young? && gender == "F" 
-    return "are you a grandpa?"  if old?   && gender == "M" 
-    return "are you a grandma?"  if old?   && gender == "F" 
+  def young_vs_old
+    return "you're a young boy"  if young? && male? 
+    return "you're a young girl" if young? && !male?
+    return "are you a grandpa?"  if old?   && male?
+    return "are you a grandma?"  if old?   && !male?
   end
 
 end
